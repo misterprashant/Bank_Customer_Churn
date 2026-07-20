@@ -1,11 +1,13 @@
 import streamlit as st
 import joblib
 import numpy as np
+from pathlib import Path
 
 # Load model
-model = joblib.load("../models/churn_model.pkl")
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-scaler = joblib.load("../models/scaler.pkl")
+model = joblib.load(BASE_DIR / "models" / "churn_model.pkl")
+scaler = joblib.load(BASE_DIR / "models" / "scaler.pkl")
 
 st.title("Bank Customer Churn Prediction")
 
